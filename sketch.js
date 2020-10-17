@@ -1,28 +1,31 @@
-var balls=[];
-var blocks=[];
-var ship;
+let balls=[];
+let blocks=[];
+let ship;
 
 function setup() {
-	var cant_balls=3;
+	startupTouch();
+	let cant_balls=3;
 	createCanvas(windowWidth,windowHeight);
-	for (var i = 0; i <cant_balls; i++) {
+	
+	for (let i = 0; i <cant_balls; i++) {
 		balls.push(new Ball());
 	}
 
-	var block_lines=5;
-	var block_per_line=9;
-	var block_height=30;
-	var block_width=floor(windowWidth/block_per_line);
-	var block_y=block_height/2;
-	for (var i = 0; i <block_lines; i++) {
-		var block_x=block_width/2;
-		for (var j = 0 ; j <block_per_line; j++) {
+	let block_lines=5;
+	let block_per_line=9;
+	let block_height=30;
+	let block_width=floor(windowWidth/block_per_line);
+	let block_y=block_height/2;
+	for (let i = 0; i <block_lines; i++) {
+		let block_x=block_width/2;
+		for (let j = 0 ; j <block_per_line; j++) {
 			blocks.push(new Block(block_x,block_y,block_width,block_height));
 			block_x=block_x+block_width;
 		}
 		block_y=block_y+block_height;
 	}
 	ship=new Ship();
+	
 }
 
 function draw() {
@@ -31,13 +34,13 @@ function draw() {
 	ship.edges();
   	ship.show();
 	// mouse();
-	for (var i = blocks.length - 1; i >= 0; i--) {
+	for (let i = blocks.length - 1; i >= 0; i--) {
 			blocks[i].show();
 	}
-	for (var i = balls.length - 1; i >= 0; i--) {
+	for (let i = balls.length - 1; i >= 0; i--) {
 		if(balls[i].edges()){
 			balls[i].collision(ship);	
-			for (var j = blocks.length - 1; j >= 0; j--) {
+			for (let j = blocks.length - 1; j >= 0; j--) {
 				if(balls[i].collision(blocks[j])){
 					blocks.splice(j,1);
 					balls[i].update();
@@ -64,4 +67,23 @@ function mouse(){
 	} else if (mouseX > ship.pos.x+ship.width/2) {
 		ship.move(createVector(1,0));
 	}
+}
+
+
+function handleStartTouch(evt) {
+	evt.preventDefault();
+	let touches = evt.changedTouches;
+	const surface = windowWidth * 0.3;  
+	if(surface >= touches[0].clientX){
+		ship.move(createVector(-1,0));
+	}
+	else if(windowWidth - surface <= touches[0].clientX) {
+		ship.move(createVector(1,0));
+	}
+  }
+
+function startupTouch() {
+	let el = document.getElementById("defaultCanvas0");
+	el.addEventListener("touchstart", handleStartTouch, false);
+
 }
