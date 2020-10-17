@@ -13,7 +13,7 @@ function setup() {
 
 	let block_lines=5;
 	let block_per_line=6;
-	let block_height=50;
+	let block_height=100;
 	let block_width=floor(windowWidth/block_per_line);
 	let block_y=block_height/2;
 	for (let i = 0; i <block_lines; i++) {
