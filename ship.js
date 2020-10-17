@@ -17,7 +17,7 @@ function Ship(){
 	}
 	this.update=function()
 	{
-		this.vel.setMag(8);
+		this.vel.setMag(15);
 		this.pos.add(this.vel);
 	}
 	this.show=function(){
