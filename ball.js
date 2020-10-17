@@ -1,10 +1,10 @@
 function Ball(){
-	this.r=20;
+	this.r=30;
 	this.pos=createVector(windowWidth/2,windowHeight/2);
 	this.color=color(random(255),random(255),random(255));
 	this.vel=createVector(random(-1,1),random(0.8,1));
 	// this.vel=createVector(0,1);
-	this.mag=7;
+	this.mag=10;
 	this.collision=function(block){
 		let colision=false;
 		if(this.pos.x-this.r<=block.pos.x+block.width/2 && this.pos.x+this.r>=block.pos.x-block.width/2){
