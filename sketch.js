@@ -51,7 +51,7 @@ function draw() {
 		}
 		else{
 			balls.splice(i,1);
-			if(!balls.length) setTimeout(()=>location.reload(), 3000) 
+			if(!balls.length) setTimeout(()=>window.location.reload(true), 3000) 
 		}
 	}
 }
