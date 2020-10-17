@@ -1,4 +1,4 @@
 # breaking-bricks
 Simple breaking-breaks game in p5.js
 
-Link: https://wjsc.github.io/breaking-bricks/
+Play the game: https://wjsc.github.io/p5js-breaking-bricks/
