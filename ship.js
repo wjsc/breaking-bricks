@@ -1,7 +1,7 @@
 function Ship(){
 	this.height=30;
 	this.width=250;
-	this.pos=createVector(windowWidth/2,windowHeight-this.height*50);
+	this.pos=createVector(windowWidth/2,windowHeight-this.height*10);
 	this.color=color(random(255),random(255),random(255));
 	this.vel=createVector(0,0);
 	this.edges=function()
