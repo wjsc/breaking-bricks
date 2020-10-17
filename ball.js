@@ -1,5 +1,5 @@
 function Ball(){
-	this.r=20;
+	this.r=30;
 	this.pos=createVector(windowWidth/2,windowHeight/2);
 	this.color=color(random(255),random(255),random(255));
 	this.vel=createVector(random(-1,1),random(0.8,1));
