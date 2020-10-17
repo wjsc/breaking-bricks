@@ -4,7 +4,7 @@ let ship;
 
 function setup() {
 	startupTouch();
-	let cant_balls=3;
+	let cant_balls=Math.max(1, Math.floor(Math.rand() * 5));
 	createCanvas(windowWidth,windowHeight);
 	
 	for (let i = 0; i <cant_balls; i++) {
@@ -12,8 +12,8 @@ function setup() {
 	}
 
 	let block_lines=5;
-	let block_per_line=6;
-	let block_height=50;
+	let block_per_line=Math.max(4, Math.floor(Math.rand() * 10));
+	let block_height=Math.max(50, Math.floor(Math.rand() * 100));
 	let block_width=floor(windowWidth/block_per_line);
 	let block_y=block_height/2;
 	for (let i = 0; i <block_lines; i++) {
@@ -43,6 +43,7 @@ function draw() {
 			for (let j = blocks.length - 1; j >= 0; j--) {
 				if(balls[i].collision(blocks[j])){
 					blocks.splice(j,1);
+					if(!blocks.length) setTimeout(()=>window.location.reload(true), 3000) 
 					balls[i].update();
 				}	
 			}
