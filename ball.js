@@ -1,5 +1,6 @@
 function Ball(){
 	this.r=Math.max(10, Math.floor(Math.random() * 50));
+	this.d =this.r*2;
 	this.pos=createVector(windowWidth/2,windowHeight/2);
 	this.color=color(random(255),random(255),random(255));
 	this.vel=createVector(random(-1,1),random(0.8,1));
@@ -46,6 +47,6 @@ function Ball(){
 	this.show=function(){		
 		noStroke();
 		fill(this.color);
-		ellipse(this.pos.x,this.pos.y,this.r*2,this.r*2);
+		ellipse(this.pos.x,this.pos.y,this.d,this.d);
 	}
 }

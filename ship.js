@@ -4,6 +4,11 @@ function Ship(){
 	this.pos=createVector(windowWidth/2,windowHeight-this.height*10);
 	this.color=color(random(255),random(255),random(255));
 	this.vel=createVector(0,0);
+	const a = this.pos.x-this.width/2;
+	const b = this.pos.x+this.width/2
+	const c = this.pos.y-this.height/2;
+	const d = this.pos.y+this.height/2,;
+
 	this.edges=function()
 	{
 		if(this.pos.x+this.width/2>windowWidth || this.pos.x-this.width/2<0){
@@ -23,15 +28,12 @@ function Ship(){
 	this.show=function(){
 		noStroke();
 		fill(this.color);
-		// push();
-		// translate(this.pos.x,this.pos.y);
 		quad(
-			this.pos.x-this.width/2,this.pos.y-this.height/2,
-			this.pos.x-this.width/2,this.pos.y+this.height/2,
-			this.pos.x+this.width/2,this.pos.y+this.height/2,
-			this.pos.x+this.width/2,this.pos.y-this.height/2
-			);
-		// pop();
+			a,c,
+			a,d,
+			b,d,
+			b,c
+		);
 	}
 	
 }
