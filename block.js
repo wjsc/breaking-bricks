@@ -6,10 +6,10 @@ function Block(pos_x,pos_y,width,height){
 	this.height=height;
 	this.width=width;
 	this.pos=createVector(pos_x,pos_y);
-	let a = this.pos.x-this.width/2;
-	let b = this.pos.x+this.width/2
-	let c = this.pos.y-this.height/2;
-	let d = this.pos.y+this.height/2,;
+	const a = this.pos.x-this.width/2;
+	const b = this.pos.x+this.width/2
+	const c = this.pos.y-this.height/2;
+	const d = this.pos.y+this.height/2;
 	
 	this.show=function(){
 		stroke(0);
