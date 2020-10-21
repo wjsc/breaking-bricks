@@ -1,7 +1,7 @@
 let balls=[];
 let blocks=[];
 let ship;
-
+let firstExecution = true;
 function setup() {
 	startupTouch();
 	let cant_balls=Math.max(1, Math.floor(Math.random() * 5));
@@ -27,15 +27,20 @@ function setup() {
 	ship=new Ship();
 	
 }
-
+function showBlocks(){
+	for (let i = blocks.length - 1; i >= 0; i--) {
+		blocks[i].show();
+	}
+}
 function draw() {
 	background(0);
 	ship.update();
 	ship.edges();
   	ship.show();
 	// mouse();
-	for (let i = blocks.length - 1; i >= 0; i--) {
-			blocks[i].show();
+	if(firstExecution){
+		showBlocks();
+		firstExecution=false;
 	}
 	for (let i = balls.length - 1; i >= 0; i--) {
 		if(balls[i].edges()){
@@ -43,8 +48,9 @@ function draw() {
 			for (let j = blocks.length - 1; j >= 0; j--) {
 				if(balls[i].collision(blocks[j])){
 					blocks.splice(j,1);
-					if(!blocks.length) setTimeout(()=>window.location.reload(true), 3000) 
+					if(!blocks.length) reloadPage();
 					balls[i].update();
+					showBlocks();
 				}	
 			}
 			balls[i].update();
@@ -52,9 +58,13 @@ function draw() {
 		}
 		else{
 			balls.splice(i,1);
-			if(!balls.length) setTimeout(()=>window.location.reload(true), 3000) 
+			if(!balls.length) reloadPage();
 		}
 	}
+}
+
+function reloadPage(){
+	setTimeout(()=>window.location.reload(true), 3000) 
 }
 function keyPressed() {
 	if (keyCode === LEFT_ARROW) {

@@ -4,7 +4,7 @@ function Ball(){
 	this.color=color(random(255),random(255),random(255));
 	this.vel=createVector(random(-1,1),random(0.8,1));
 	// this.vel=createVector(0,1);
-	this.mag=Math.max(10, Math.floor(Math.random() * 30));
+	this.mag=Math.max(20, Math.floor(Math.random() * 35));
 	this.collision=function(block){
 		let colision=false;
 		if(this.pos.x-this.r<=block.pos.x+block.width/2 && this.pos.x+this.r>=block.pos.x-block.width/2){
