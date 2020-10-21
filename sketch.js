@@ -1,7 +1,7 @@
 let balls=[];
 let blocks=[];
 let ship;
-let fr = 10;
+let fr = 25;
 
 function setup() {
 	startupTouch();
