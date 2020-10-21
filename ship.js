@@ -4,10 +4,6 @@ function Ship(){
 	this.pos=createVector(windowWidth/2,windowHeight-this.height*10);
 	this.color=color(random(255),random(255),random(255));
 	this.vel=createVector(0,0);
-	const a = this.pos.x-this.width/2;
-	const b = this.pos.x+this.width/2
-	const c = this.pos.y-this.height/2;
-	const d = this.pos.y+this.height/2;
 
 	this.edges=function()
 	{
@@ -29,10 +25,10 @@ function Ship(){
 		noStroke();
 		fill(this.color);
 		quad(
-			a,c,
-			a,d,
-			b,d,
-			b,c
+			this.pos.x-this.width/2,this.pos.y-this.height/2,
+			this.pos.x-this.width/2,this.pos.y+this.height/2,
+			this.pos.x+this.width/2,this.pos.y+this.height/2,
+			this.pos.x+this.width/2,this.pos.y-this.height/2
 		);
 	}
 	
