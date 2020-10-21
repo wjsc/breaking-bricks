@@ -1,6 +1,7 @@
 let balls=[];
 let blocks=[];
 let ship;
+let fr = 10;
 
 function setup() {
 	startupTouch();
@@ -10,7 +11,7 @@ function setup() {
 	for (let i = 0; i <cant_balls; i++) {
 		balls.push(new Ball());
 	}
-
+	frameRate(fr)
 	let block_lines=5;
 	let block_per_line=Math.max(4, Math.floor(Math.random() * 10));
 	let block_height=Math.max(50, Math.floor(Math.random() * 100));
