@@ -7,7 +7,7 @@ function Ship(){
 	const a = this.pos.x-this.width/2;
 	const b = this.pos.x+this.width/2
 	const c = this.pos.y-this.height/2;
-	const d = this.pos.y+this.height/2,;
+	const d = this.pos.y+this.height/2;
 
 	this.edges=function()
 	{
